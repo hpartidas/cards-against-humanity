@@ -7,8 +7,9 @@ console.log(obj2);
 
 class AppComponent {
     static PropTypes = {
-        foo: "bar"
+        foo: "bar'd"
     };
 }
 
-console.log(<AppComponent/>);
+//console.log(<AppComponent/>);
+console.log("Hello World!");
