@@ -1,15 +1,33 @@
-const foo = "bar";
-console.log(`hello ${foo}`);
+import express from "express";
+import http from "http";
 
-const obj = {hey: 1};
-const obj2 = {...obj, foo: 2};
-console.log(obj2);
+import {isDevelopment} from "./settings";
 
-class AppComponent {
-    static PropTypes = {
-        foo: "bar'd"
-    };
-}
+// --------------------------------------
+// Setup
+const app = express();
+const server = new http.Server(app);
 
-//console.log(<AppComponent/>);
-console.log("Hello World!");
+// --------------------------------------
+// Configuration
+app.set("view engine", "pug");
+app.use(express.static("public"));
+
+const useExternalStyles = !isDevelopment;
+const scriptRoot = isDevelopment
+    ? "http://localhost:8080/build"
+    : "/build";
+
+app.get("*", (req,res) => {
+    res.render("index", {
+        useExternalStyles,
+        scriptRoot
+    });
+});
+
+// --------------------------------------
+// Init
+const port = process.env.PORT || 3000;
+server.listen(port, () => {
+    console.log(`Started http server on ${port}`);
+});
