@@ -7,11 +7,18 @@ class AppBase extends Component {
         console.log("AppBase mounted;");
     }
     render () {
+        const {main, sidebar} = this.props;
         return (
-            <section>
-                <h1>Hello World</h1>
-                <button onClick={this._click.bind(this)}>I am a button</button>
-            </section>
+            <div className={`c-application`}>
+                <div className="inner">
+                    <div className="sidebar">
+                        {sidebar}
+                    </div>
+                    <div className="main">
+                        {main}
+                    </div>
+                </div>
+            </div>
         );
     }
 

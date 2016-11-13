@@ -1,19 +1,29 @@
 import "./client.scss";
 
+import React from "react";
 import ReactDOM from "react-dom";
+import {Router, browserHistory as History} from "react-router";
 
-/**
- * HotModuleReload
- */
+//-------------------------------------------
+// Render
 function main() {
     const routes = require("./routes").default();
-    ReactDOM.render(routes, document.getElementById("mount"));
+    ReactDOM.render(
+        <Router history={History}>
+            {routes}
+        </Router>,
+        document.getElementById("mount"));
 }
 
-main();
-
+//-------------------------------------------
+// Misc
 if (module.hot) {
     module.hot.accept("./components/app", () => {
         main();
     });
 }
+
+//-------------------------------------------
+// Execute
+
+main();
