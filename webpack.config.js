@@ -3,10 +3,14 @@ var path = require("path"),
     webpack = require("webpack"),
     ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const vendor = ["lodash"];
+const vendor = [
+    "lodash",
+    "react",
+    "react-dom",
+];
 
 function createConfig(isDebug) {
-    const devtool = isDebug ? "cheap-module-source-map" : null;
+    const devtool = isDebug ? "eval-source-map" : null;
     const plugins = [
         new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.js"),
         new webpack.DefinePlugin({
@@ -32,7 +36,11 @@ function createConfig(isDebug) {
 
     if (isDebug) {
         plugins.push(new webpack.HotModuleReplacementPlugin());
-        clientEntry.unshift("webpack-dev-server/client?http://localhost:8080/", "webpack/hot/only-dev-server");
+        clientEntry.unshift(
+            "react-hot-loader/patch",
+            "webpack-dev-server/client?http://localhost:8080/",
+            "webpack/hot/only-dev-server"
+        );
         publicPath = "http://localhost:8080/build/";
     } else {
         plugins.push(
