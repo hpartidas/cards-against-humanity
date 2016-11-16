@@ -1,7 +1,8 @@
 
 import "./lobby.scss";
 
-import React, {Component} from "react";
+import React from "react";
+import * as A from "../actions";
 import {ContainerBase} from "../lib/component";
 import Chat from "./chat";
 
@@ -50,7 +51,7 @@ class LobbySidebar extends ContainerBase {
         super(props);
 
         this._login = () => {
-            console.log("TODO: Implement Login");
+            this.dispatch(A.dialogSet(A.DIALOG_LOGIaN, true));
         };
 
         this._createGame = () => {
