@@ -3,7 +3,7 @@ import _ from "lodash";
 /**
  * Web pack packages all js files
  */
-const context = require.context("./", false, /\.js^/);
+const context = require.context("./", false, /\.js$/);
 
 /**
  * Functions as a require for all components but excludes index file

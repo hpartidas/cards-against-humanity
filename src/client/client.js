@@ -4,8 +4,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {Router, browserHistory as History} from "react-router";
 
-import {Dispatcher} from "shared/dispatcher";
 import * as A from "./actions";
+import {Dispatcher} from "shared/dispatcher";
 import {StoreProvider} from "./lib/component";
 import createStores from "./stores";
 

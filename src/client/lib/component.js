@@ -6,7 +6,7 @@ export class StoreProvider extends Component {
         services: PropTypes.object.isRequired
     };
 
-    static childContentTypes = {
+    static childContextTypes = {
         stores: PropTypes.object.isRequired,
         services: PropTypes.object.isRequired
     }
@@ -44,7 +44,7 @@ export class ContainerBase extends Component {
     }
 
     dispatch(action) {
-        this.content.services.dispatcher.emit(action);
+        this.context.services.dispatcher.emit(action);
     }
 
     request(action) {

@@ -51,7 +51,7 @@ class LobbySidebar extends ContainerBase {
         super(props);
 
         this._login = () => {
-            this.dispatch(A.dialogSet(A.DIALOG_LOGIaN, true));
+            this.dispatch(A.dialogSet(A.DIALOG_LOGIN, true));
         };
 
         this._createGame = () => {
