@@ -1,11 +1,14 @@
+
 import "./lobby.scss";
 
 import React, {Component} from "react";
+import {ContainerBase} from "../lib/component";
 import Chat from "./chat";
 
-class LobbyContainer extends Component {
+class LobbyContainer extends ContainerBase {
     constructor (props) {
         super(props);
+
         this._joinGame = (game) => {
             console.log(`TODO: JOIN GAME ${game.title}`);
         };
@@ -42,7 +45,7 @@ class LobbyContainer extends Component {
     }
 }
 
-class LobbySidebar extends Component {
+class LobbySidebar extends ContainerBase {
     constructor (props) {
         super(props);
 
