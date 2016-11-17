@@ -109,7 +109,7 @@ export class Dispatcher {
     }
 
     succeed(action) {
-        this.emit(A.succeed(action));
+        this.emit(A.success(action));
     }
 
     respond(action, validator) {
